@@ -1,0 +1,19 @@
+
+<div class="container-fluid">
+		<div id="sortableKanbanBoards" class="row" >
+			<div  class="panel panel-primary kanban-col" style="background:blue;" *ngFor="let item of data let rowindex=index "  [kanbanrow]="rowindex" >
+				<div class="panel-body" >
+     				<div class="kanban-centered" ><!--we need to define a system for best performance -->
+						<article  class=""  *ngFor="let article of item.column let colindex=index " [kanbancol]="colindex" draggable=true>
+							<div *ngIf="rowindex == krow && colindex == kcol" class="kanban-entry" draggable=false>...</div><!--when someone on top-->
+							<div class="kanban-entry grab">{{article | json}}</div>
+							
+						</article>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+</div>
+
+{{data | json}}
